@@ -5,35 +5,35 @@ import Button from "../Button";
 import {useState} from "react";
 
 const Form = (props) => {
-  const [nome, setNome] = useState('')
-  const [cargo, setCargo] = useState('')
+  const [name, setName] = useState('')
+  const [role, setRole] = useState('')
   const [image, setImage] = useState('')
-  const [time, setTime] = useState('')
+  const [team, setTeam] = useState('')
 
   const aoSalvar = (event) => {
     event.preventDefault()
     props.aoColaboradorCadastrado({
-      nome,
-      cargo,
+      name,
+      role,
       image,
-      time
+      team
     })
-    setNome('')
-    setCargo('')
+    setName('')
+    setRole('')
     setImage('')
-    setTime('')
+    setTeam('')
   }
   return (
     <section className="form">
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <InputText valor={nome} aoAlterado={valor => setNome(valor)}
+        <InputText valor={name} aoAlterado={valor => setName(valor)}
                    required={true} label="Nome" placeholder="Digite seu nome"/>
-        <InputText valor={cargo} aoAlterado={valor => setCargo(valor)}
+        <InputText valor={role} aoAlterado={valor => setRole(valor)}
                    required={true} label="Cargo" placeholder="Digite seu cargo"/>
         <InputText valor={image} aoAlterado={valor => setImage(valor)}
                    label="Imagem" placeholder="Digite o endereço da imagem"/>
-        <Select valor={time} aoAlterado={valor => setTime(valor)}
+        <Select valor={team} aoAlterado={valor => setTeam(valor)}
                 required={true} label="Time" itens={props.teamNames}/>
         <Button>
           Criar card
