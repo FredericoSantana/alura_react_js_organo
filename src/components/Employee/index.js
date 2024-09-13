@@ -4,7 +4,7 @@ const Employee = ({name, role, image, bgColor}) => {
   return (
     <div className="employee">
       <div className="header-card" style={{backgroundColor: bgColor}}>
-        <img src={image}/>
+        <img src={image} alt={name}/>
       </div>
       <div className="footer-card">
         <h4>{name}</h4>
