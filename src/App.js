@@ -233,11 +233,17 @@ function App() {
     }))
   }
 
+  function registerTeam(newTeam) {
+    setTeams([...teams, {...newTeam, id: uuidv4()}])
+  }
+
   return (
     <div className="App">
       <Banner/>
       <Form teamNames={teams.map(team => team.name)}
-            aoColaboradorCadastrado={employees => aoNovoColaboradorAdicionado(employees)}/>
+            aoColaboradorCadastrado={employees => aoNovoColaboradorAdicionado(employees)}
+            registerTeam={registerTeam}
+      />
       {teams.map(team => <Team
           key={team.id}
           team={team}
