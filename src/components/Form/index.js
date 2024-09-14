@@ -26,8 +26,8 @@ const Form = ({teamNames, aoColaboradorCadastrado, registerTeam}) => {
     setTeam('')
   }
   return (
-    <section className="form">
-      <form onSubmit={aoSalvar}>
+    <section className="form-container">
+      <form className="form" onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
         <InputText valor={name} aoAlterado={valor => setName(valor)}
                    required={true} label="Nome" placeholder="Digite seu nome"/>
@@ -41,7 +41,7 @@ const Form = ({teamNames, aoColaboradorCadastrado, registerTeam}) => {
           Criar card
         </Button>
       </form>
-      <form onSubmit={(event) => {
+      <form className="form" onSubmit={(event) => {
         event.preventDefault()
         registerTeam({name: teamName, color: teamColor})
       }}>
