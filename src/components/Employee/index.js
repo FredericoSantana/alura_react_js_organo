@@ -1,14 +1,20 @@
+import {AiFillCloseCircle} from 'react-icons/ai';
 import './Employee.css';
 
-const Employee = ({name, role, image, bgColor}) => {
+const Employee = ({employee, bgColor, onDelete}) => {
   return (
     <div className="employee">
+      <AiFillCloseCircle
+        size={25}
+        className="delete"
+        onClick={() => onDelete(employee.id)}
+      />
       <div className="header-card" style={{backgroundColor: bgColor}}>
-        <img src={image} alt={name}/>
+        <img src={employee.image} alt={employee.name}/>
       </div>
       <div className="footer-card">
-        <h4>{name}</h4>
-        <h5>{role}</h5>
+        <h4>{employee.name}</h4>
+        <h5>{employee.role}</h5>
       </div>
     </div>
   );
