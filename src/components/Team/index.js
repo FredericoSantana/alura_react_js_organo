@@ -2,7 +2,7 @@ import './Team.css';
 import Employee from "../Employee";
 import hexToRgba from "hex-to-rgba";
 
-const Team = ({ team, employees, onDelete, changeColor}) => {
+const Team = ({ team, employees, onDelete, changeColor, onFavourite}) => {
   const css = { backgroundColor: hexToRgba(team.color, '0.6'), backgroundImage: 'url(/images/fundo.png)' };
   return (
     (employees.length > 0) &&
@@ -18,6 +18,7 @@ const Team = ({ team, employees, onDelete, changeColor}) => {
             employee={employee}
             bgColor={team.color}
             onDelete={onDelete}
+            onFavourite={onFavourite}
           />
         })}
       </div>
